@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# install nano if not already installed
-# note: we assume a debian-based base image
-if ! command -v httpie &> /dev/null; then
-    echo "Installing nano..."
-    sudo apt update && sudo apt install -y nano
+# if current user is root, rerun the script as user vscode
+if [ "$EUID" -eq 0 ]; then
+    su - vscode -c "bash $0"
+    exit
 fi
 
-# set nano as default git editor
-echo "export GIT_EDITOR="nano" >> /home/vscode/.bashrc
+./git/set-editor-to-nano

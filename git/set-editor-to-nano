@@ -8,4 +8,4 @@ if ! command -v httpie &> /dev/null; then
 fi
 
 # set nano as default git editor
-echo "export GIT_EDITOR="nano" >> /home/vscode/.bashrc
+echo "export GIT_EDITOR=nano" >> /home/vscode/.bashrc

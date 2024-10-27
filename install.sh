@@ -6,7 +6,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if [ "$EUID" -eq 0 ]; then
     # copy the current dir to the vscode user home
     install -d /home/vscode/dotfiles
-    cp -r "${SCRIPT_DIR}/*" /home/vscode/dotfiles
+    cp -r "${SCRIPT_DIR}/"* /home/vscode/dotfiles
     chown -R vscode:vscode /home/vscode/dotfiles
 
     su - vscode -c "bash /home/vscode/dotfiles/install.sh"
